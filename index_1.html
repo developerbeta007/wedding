@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Veena ❤️ Naveen</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      background: linear-gradient(135deg, #e8f5e9, #ffffff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    body::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+      opacity: 0.25;
+      z-index: 0;
+    }
+
+    .card {
+      width: 360px;
+      min-height: 600px;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 25px 20px;
+      text-align: center;
+
+      border: 2px solid #d4af37;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('./images/floral.png') no-repeat center;
+      background-size: cover;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .ganesha {
+      font-size: 34px;
+      margin-bottom: 8px;
+    }
+
+    .title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 34px;
+      color: #2e7d32;
+    }
+
+    .names {
+      font-size: 26px;
+      margin: 12px 0 20px;
+      color: #1b5e20;
+      font-weight: 500;
+    }
+
+    button {
+      margin-top: 12px;
+      padding: 10px 20px;
+      border-radius: 25px;
+      border: none;
+      background: linear-gradient(45deg, #66bb6a, #43a047);
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .info {
+      margin-top: 10px;
+      font-size: 15px;
+      color: #333;
+    }
+
+    .section {
+      margin-top: 15px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .show {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .footer {
+      margin-top: 25px;
+      font-size: 14px;
+      color: #444;
+      line-height: 1.6;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="card">
+  <div class="content">
+
+    <div class="ganesha">🪔</div>
+
+    <div class="title">Wedding Invitation</div>
+
+    <div class="names">
+      Veena ❤️ Naveen
+    </div>
+
+    <div class="section">
+      <button onclick="revealDate()">Tap to Reveal Date</button>
+      <div id="date" class="info hidden">
+        📅 03 May 2026 <br/>
+        ⏰ 9:00 AM – 10:30 AM
+      </div>
+    </div>
+
+    <div class="section">
+      <button onclick="revealVenue()">Tap to Reveal Venue</button>
+      <div id="venue" class="info hidden">
+        📍 Girija Kalyana Mantapa<br/>
+        Vijipura
+      </div>
+    </div>
+
+    <!-- ✅ Blessings moved to bottom -->
+    <div class="footer">
+      With the blessings of our parents,<br/>
+      we invite you to celebrate our special day 💕
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function revealDate() {
+    document.getElementById("date").classList.remove("hidden");
+    document.getElementById("date").classList.add("show");
+  }
+
+  function revealVenue() {
+    document.getElementById("venue").classList.remove("hidden");
+    document.getElementById("venue").classList.add("show");
+  }
+</script>
+
+</body>
+</html>

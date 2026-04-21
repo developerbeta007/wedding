@@ -1,182 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Veena ❤️ Naveen</title>
+  <meta charset="UTF-8">
+  <title>Wedding Invitation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      height: 100vh;
+      font-family: 'Playfair Display', serif;
       background: linear-gradient(135deg, #e8f5e9, #ffffff);
+      overflow: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
-      position: relative;
+      height: 100vh;
     }
 
-    body::after {
-      content: "";
+    /* Floating petals */
+    .petal {
       position: absolute;
-      width: 100%;
-      height: 100%;
-      background: url('https://www.transparenttextures.com/patterns/cream-paper.png');
-      opacity: 0.25;
-      z-index: 0;
+      width: 12px;
+      height: 12px;
+      background: rgba(255, 182, 193, 0.5);
+      border-radius: 50%;
+      animation: float 12s linear infinite;
+    }
+
+    @keyframes float {
+      from { transform: translateY(100vh) rotate(0deg); }
+      to { transform: translateY(-10vh) rotate(360deg); }
     }
 
     .card {
-      width: 360px;
-      min-height: 600px;
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 25px 20px;
+      background: rgba(255,255,255,0.95);
+      padding: 35px;
+      border-radius: 25px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+      max-width: 360px;
+      width: 90%;
       text-align: center;
-
-      border: 2px solid #d4af37;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: url('./images/floral.png') no-repeat center;
-      background-size: cover;
-      opacity: 0.3;
-      pointer-events: none;
-    }
-
-    .content {
-      position: relative;
       z-index: 2;
+      transform: scale(0.95);
+      animation: zoomIn 0.8s ease forwards;
     }
 
-    .ganesha {
-      font-size: 34px;
-      margin-bottom: 8px;
+    @keyframes zoomIn {
+      to { transform: scale(1); }
     }
 
-    .title {
-      font-family: 'Great Vibes', cursive;
-      font-size: 34px;
+    h1 {
       color: #2e7d32;
+      font-size: 26px;
+      margin-bottom: 10px;
     }
 
     .names {
-      font-size: 26px;
-      margin: 12px 0 20px;
+      font-size: 22px;
       color: #1b5e20;
-      font-weight: 500;
+      text-shadow: 0 0 10px rgba(46,125,50,0.4);
+      margin: 15px 0;
+      opacity: 0;
+      transition: 1s;
+    }
+
+    .show {
+      opacity: 1;
+    }
+
+    p {
+      color: #555;
+      font-size: 15px;
+      margin: 8px 0;
+    }
+
+    .highlight {
+      font-size: 18px;
+      color: #2e7d32;
+      font-weight: bold;
+    }
+
+    .floral {
+      font-size: 22px;
+      margin-bottom: 10px;
     }
 
     button {
-      margin-top: 12px;
-      padding: 10px 20px;
-      border-radius: 25px;
+      margin-top: 20px;
+      padding: 10px 24px;
       border: none;
+      border-radius: 25px;
       background: linear-gradient(45deg, #66bb6a, #43a047);
       color: white;
       cursor: pointer;
-      font-size: 14px;
-    }
-
-    .info {
-      margin-top: 10px;
       font-size: 15px;
-      color: #333;
-    }
-
-    .section {
-      margin-top: 15px;
     }
 
     .hidden {
       display: none;
     }
 
-    .show {
-      display: block;
-      animation: fadeIn 0.5s ease;
+    .fade {
+      animation: fadeIn 1s ease;
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
     }
-
-    .footer {
-      margin-top: 25px;
-      font-size: 14px;
-      color: #444;
-      line-height: 1.6;
-    }
-
   </style>
 </head>
-
 <body>
 
-<div class="card">
-  <div class="content">
+<!-- Floating petals -->
+<script>
+for (let i = 0; i < 30; i++) {
+  let p = document.createElement("div");
+  p.className = "petal";
+  p.style.left = Math.random() * 100 + "vw";
+  p.style.animationDuration = (8 + Math.random() * 6) + "s";
+  document.body.appendChild(p);
+}
+</script>
 
-    <div class="ganesha">🪔</div>
+<!-- Music -->
+<audio id="music" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
 
-    <div class="title">Wedding Invitation</div>
+<!-- Step 1 -->
+<div class="card fade" id="step1">
+  <div class="floral">🌸✨🌸</div>
+  <h1>A Sacred Invitation</h1>
+  <p>With the blessings of our families</p>
+  <button onclick="startInvite()">Open the Invitation</button>
+</div>
 
-    <div class="names">
-      Veena ❤️ Naveen
-    </div>
+<!-- Step 2 -->
+<div class="card hidden" id="step2">
+  <p>Together with joyful hearts</p>
+  <p>we invite you to celebrate the union of</p>
+  <div id="names" class="names">Naveen R ❤️ Veena N</div>
+  <button onclick="revealNames()">Reveal</button>
+</div>
 
-    <div class="section">
-      <button onclick="revealDate()">Tap to Reveal Date</button>
-      <div id="date" class="info hidden">
-        📅 03 May 2026 <br/>
-        ⏰ 9:00 AM – 10:30 AM
-      </div>
-    </div>
+<!-- Step 3 -->
+<div class="card hidden" id="step3">
+  <h1>The Auspicious Day</h1>
+  <p class="highlight">03 May 2025</p>
+  <p>Between 9:00 AM – 10:30 AM</p>
+  <button onclick="next(3)">View Venue</button>
+</div>
 
-    <div class="section">
-      <button onclick="revealVenue()">Tap to Reveal Venue</button>
-      <div id="venue" class="info hidden">
-        📍 Girija Kalyana Mantapa<br/>
-        Vijipura
-      </div>
-    </div>
+<!-- Step 4 -->
+<div class="card hidden" id="step4">
+  <h1>The Celebration Venue</h1>
+  <p class="highlight">Girija Kalyana Mantapa</p>
+  <p>V</p>
 
-    <!-- ✅ Blessings moved to bottom -->
-    <div class="footer">
-      With the blessings of our parents,<br/>
-      we invite you to celebrate our special day 💕
-    </div>
+  <button onclick="openMap()">View on Map</button>
+  <button onclick="next(4)">Continue</button>
+</div>
 
-  </div>
+<!-- Step 5 -->
+<div class="card hidden" id="step5">
+  <h1>We Await Your Presence</h1>
+  <p>Your blessings mean everything to us</p>
+  <p>Join us as we begin our beautiful journey together</p>
+  <p>💖 Naveen & Veena 💖</p>
 </div>
 
 <script>
-  function revealDate() {
-    document.getElementById("date").classList.remove("hidden");
-    document.getElementById("date").classList.add("show");
-  }
+function startInvite() {
+  document.getElementById("music").play();
+  next(1);
+}
 
-  function revealVenue() {
-    document.getElementById("venue").classList.remove("hidden");
-    document.getElementById("venue").classList.add("show");
-  }
+function revealNames() {
+  let names = document.getElementById("names");
+  names.classList.add("show");
+  setTimeout(() => next(2), 1200);
+}
+
+function next(step) {
+  document.getElementById("step" + step).classList.add("hidden");
+  let nextStep = document.getElementById("step" + (step + 1));
+  nextStep.classList.remove("hidden");
+  nextStep.classList.add("fade");
+}
+
+function openMap() {
+  window.open("https://www.google.com/maps/search/?api=1&query=Girija+Kalyana+Mantapa+Vijipura");
+}
 </script>
 
 </body>
